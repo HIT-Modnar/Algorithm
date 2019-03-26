@@ -1,16 +1,16 @@
+// Name   : Header.h
+// Author : Modnar
+// Date   : 2019-03-26
+// Copyright (C) 2019 Modnar. All rights reserved.
+#ifndef HEADER_H
+#define HEADER_H
+
 #include <iostream>
+#include <vector>
+#include <random>
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <cstdlib>
+#include <cmath>
+#include <ctime>
 
-const int N = 20;
-
-void swap(int &a, int &b);
-int divtwo(int a, int b);
-
-void QuickSort(int list[], int m, int n);
-void MergeSort(int list[], int m, int n);
-void BubbleSort(int list[], int m, int n);
-void SelectSort(int list[], int m, int n);
-void InsertSort(int list[], int m, int n);
+#endif /* HEADER_H */
