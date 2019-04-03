@@ -1,5 +1,5 @@
 compile :
-	g++ src/main.cpp src/search.cpp -Wall -o bin/main.out
+	g++ -std=c++11 main.cpp search.cpp -Wall -o res.out
 
 run :
-	bin/main.out
+	./res.out

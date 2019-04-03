@@ -6,7 +6,7 @@ int main(int argc, char ** argv) {
     for(int i = 0; i < N; i++) {
         list[i] = rand() % 100 + 1;
     }
-    list[0] = 50;
+    //list[0] = 50;
     QuickSort(list, 0, N - 1);
     for(int i = 0; i < N; i++) std::cout << list[i] << "  ";
     std::cout << std::endl;
