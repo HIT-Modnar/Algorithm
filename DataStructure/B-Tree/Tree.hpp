@@ -12,7 +12,7 @@
 #include <vector>
 
 // Every node contains 2*MAX_SIZE-1 keys and 2*MAX_SIZE children.
-const int MAX_SIZE = 4;
+const int MAX_SIZE = 10;
 
 typedef int Key;
 typedef std::string Value;

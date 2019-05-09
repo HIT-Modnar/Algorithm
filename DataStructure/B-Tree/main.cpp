@@ -14,7 +14,7 @@
 int main(int argc, char *argv[]) {
     std::shared_ptr<Node> B_TREE;
     B_TREE_CREATE(B_TREE);
-    int N = 140;
+    int N = 1000000;
     std::vector<std::shared_ptr<Data>> dataVec;
     std::ifstream is("data.txt");
     for (int i = 0; i < N; ++i) {
@@ -27,13 +27,11 @@ int main(int argc, char *argv[]) {
         // std::cout << i << std::endl;
         B_TREE_INSERT(B_TREE, dataVec[i]);
     }
-    for (int i = N; i < 2*N; ++i) 
-        B_TREE_DELETE(B_TREE, i);
-    for (int i = 0; i < N; ++i) {
+    for (int i = 0; i < 10; ++i) {
         auto node = B_TREE_SEARCH(B_TREE, i);
         if (node == nullptr)
             continue;
-        std::cout << i << " " << node->key << " " << node->value << std::endl;
+        std::cout << node->key << " " << node->value << std::endl;
     }
     return 0;
 }
