@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
     B_TREE_CREATE(B_TREE);
     int N = 140;
     std::vector<std::shared_ptr<Data>> dataVec;
-    std::ifstream is("Data.txt");
+    std::ifstream is("data.txt");
     for (int i = 0; i < N; ++i) {
         dataVec.push_back(std::make_shared<Data>());
         is >> dataVec[i]->key;
@@ -27,6 +27,8 @@ int main(int argc, char *argv[]) {
         // std::cout << i << std::endl;
         B_TREE_INSERT(B_TREE, dataVec[i]);
     }
+    for (int i = N; i < 2*N; ++i) 
+        B_TREE_DELETE(B_TREE, i);
     for (int i = 0; i < N; ++i) {
         auto node = B_TREE_SEARCH(B_TREE, i);
         if (node == nullptr)

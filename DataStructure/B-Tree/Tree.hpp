@@ -11,7 +11,7 @@
 #include <string>
 #include <vector>
 
-// Every node contains NODE_SIZE key and NODE_SIZE+1 children.
+// Every node contains 2*MAX_SIZE-1 keys and 2*MAX_SIZE children.
 const int MAX_SIZE = 4;
 
 typedef int Key;

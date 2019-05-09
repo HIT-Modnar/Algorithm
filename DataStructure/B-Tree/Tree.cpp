@@ -82,8 +82,8 @@ std::shared_ptr<Data> B_TREE_SEARCH(std::shared_ptr<Node> &x, Key K) {
 }
 
 void B_TREE_DELETE(std::shared_ptr<Node> &x, Key K) {
-    int i = 0; 
-    while (i < x->n && K > x->dataset[i]->key)
+    int i = 0;
+    while (i < x->n && K > x->dataset[i]->key) 
         ++i;
     if (i < x->n && K == x->dataset[i]->key) {
         if (x->leaf) {
@@ -91,8 +91,7 @@ void B_TREE_DELETE(std::shared_ptr<Node> &x, Key K) {
                 x->dataset[j] = x->dataset[j+1];
             --x->n;
         } else if (i+1 <= x->n) {
-            auto y1 = x->children[i];
-            auto y2 = x->children[i+1];
+            auto y1 = x->children[i], y2 = x->children[i+1];
             int t;
             if (y1->n >= MAX_SIZE) {
                 t = y1->n - 1;
@@ -106,25 +105,24 @@ void B_TREE_DELETE(std::shared_ptr<Node> &x, Key K) {
                 B_TREE_DELETE(x->children[i], K);
             }
         } else {
-            std::cout << "ERROR IN REMOVE!" << std::endl;
+            std::cout << "Error when remove!" << std::endl;
         }
     } else if (x->leaf) {
-        std::cout << "NO NODE WAS CHANGED!" << std::endl;
+        std::cout << "Nothing was changed!" << std::endl;
     } else {
-        if (x->children[i]->n == MAX_SIZE) {
+        if (x->children[i]->n >= MAX_SIZE) {
             B_TREE_DELETE(x->children[i], K);
         } else {
             if (i+1 <= x->n && x->children[i+1]->n < MAX_SIZE) {
                 B_TREE_UNION(x, i);
             } else if (i+1 <= x->n) {
-                auto y1 = x->children[i];
-                auto y2 = x->children[i+1];
+                auto y1 = x->children[i], y2 = x->children[i+1];
                 y1->dataset[y1->n] = x->dataset[i];
-                y1->n = y2->n + 1;
+                ++y1->n;
                 x->dataset[i] = y2->dataset[0];
                 y1->children[y1->n] = y2->children[0];
-                int t = 0;
-                for (;t < y2->n-1; ++t) {
+                int t;
+                for (t = 0; t < y2->n-1; ++t) {
                     y2->dataset[t] = y2->dataset[t+1];
                     y2->children[t] = y2->children[t+1];
                 }
@@ -134,9 +132,8 @@ void B_TREE_DELETE(std::shared_ptr<Node> &x, Key K) {
                 B_TREE_UNION(x, i-1);
                 --i;
             } else if (i-1 >= 0) {
-                auto y1 = x->children[i];
-                auto y2 = x->children[i+1];
-                int t = 0;
+                auto y1 = x->children[i], y2 = x->children[i-1];
+                int t;
                 for (t = y1->n; t > 0; --t) {
                     y1->dataset[t] = y1->dataset[t-1];
                     y1->children[t+1] = y1->children[t];
