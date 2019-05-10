@@ -6,7 +6,6 @@
 #ifndef B_TREE_HPP
 #define B_TREE_HPP
 
-#include <iostream>
 #include <memory>
 #include <string>
 #include <vector>

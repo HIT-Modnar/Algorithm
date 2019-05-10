@@ -3,6 +3,8 @@
 // Date   : 2019-05-08
 // Copyright (C) 2019 Modnar. All rights reserved.
 
+#include <iostream>
+
 #include "Tree.hpp"
 
 void B_TREE_CREATE(std::shared_ptr<Node> &T) {
