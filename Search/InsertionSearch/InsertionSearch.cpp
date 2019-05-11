@@ -1,4 +1,4 @@
-// Name   : BinarySearch.cpp
+// Name   : InsertionSearch.cpp
 // Author : Modnar
 // Date   : 2019-05-11
 
