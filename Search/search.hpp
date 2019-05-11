@@ -34,4 +34,28 @@
  */
 extern int binary_search(const std::vector<int> &ivec, int key, bool insert = false);
 
-#endif
+/**
+ * Get the key's index/position in vector using insertion search:
+ *   The function's function is similar to binary search, and the details please see
+ *   binary search.
+ *
+ * Warning:
+ *   If want the function could work normally, make sure the vector's content is an 
+ *   ascending sequence.
+ *
+ * @param: ivec: The vector need to be searched.
+ * @param: key: The key to search.
+ * @param: insert: The choice of searching's pattern. 
+ */
+extern int insertion_search(const std::vector<int> &ivec, int key, bool insert = false);
+
+/**
+ * Get the key's index in vector using sequence search.
+ *
+ * @param: ivec: The vector need to be searched.
+ * @param: key: The key to search.
+ * @return the index of key, and if the key is not found, return -1.
+ */
+extern int sequence_search(const std::vector<int> &ivec, int key);
+
+#endif /* SEARCH_HPP */

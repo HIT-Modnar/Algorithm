@@ -14,7 +14,9 @@
 
 | # | Algorithm | Solution | Note |
 |---| --------- | -------- | ---- |
-| 1 | [BinarySearch](./Search/BinarySearch/) | [C++](./Search/BinarySearch/main.cpp) ||
+| 1 | [BinarySearch](./Search/BinarySearch/) | [C++](./Search/BinarySearch/BinarySearch.cpp) ||
+| 2 | [SequenceSearch](./Search/SequenceSearch/) | [C++](./Search/SequenceSearch/SequenceSearch.cpp) ||
+| 3 | [InsertionSearch](./Search/InsertionSearch/) | [C++](./Search/InsertionSearch/InsertionSearch.cpp) ||
 
 ## String Match
 
