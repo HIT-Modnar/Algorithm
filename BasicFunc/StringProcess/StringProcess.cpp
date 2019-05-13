@@ -1,4 +1,4 @@
-// Name   : StringProcess.hpp
+// Name   : StringProcess.cpp
 // Author : Modnar
 // Date   : 2019-05-11
 
