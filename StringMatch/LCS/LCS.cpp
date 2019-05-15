@@ -2,6 +2,8 @@
 // Author : Modnar
 // Date   : 2019-05-15
 
+#include <iostream> // TODO
+
 #include "LCS.hpp"
 
 typedef struct element {
@@ -24,14 +26,15 @@ int LCS(const std::string &str1, const std::string &str2) {
                 matrix[i+1][j+1].direction = 0;
             } else {
                 matrix[i+1][j+1].length = std::max(matrix[i][j+1].length, matrix[i+1][j].length);
-                matrix[i+1][j+1].direction = matrix[i][j+1].length > matrix[i+1][j].length ? -1 : 1;
+                matrix[i+1][j+1].direction = matrix[i][j+1].length > matrix[i+1][j].length ? 1 : -1;
             }
         }
     return matrix[str1.size()][str2.size()].length;
 }
 
-std::string LCS_STR(const std::string &str1, const std::string &str2) {
-    LCS(str1, str2);
+std::string LCS_STR(const std::string &str1, const std::string &str2, bool still) {
+    if (!still)
+        LCS(str1, str2);
     std::string res("");
     int i = str1.size(), j = str2.size();
     while (i != 0 && j != 0) {

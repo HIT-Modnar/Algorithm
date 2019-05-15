@@ -8,7 +8,9 @@
 
 int main(int argc, char *argv[]) {
     std::string str1 = "Hello", str2 = "hello";
-    std::cout << LCS(str1, str2) << std::endl;
-    std::cout << LCS_STR(str1, str2) << std::endl;
+    std::cout << "Hello, hello:\nLCS: " << LCS(str1, str2) << std::endl 
+              << "LCS_STR: " << LCS_STR(str1, str2, true) << std::endl;
+    str1 = "123456", str2 = "224466";
+    std::cout << "\n123456, 224466:\nLCS_STR: " << LCS_STR(str1, str2) << std::endl;
     return 0;
 }
