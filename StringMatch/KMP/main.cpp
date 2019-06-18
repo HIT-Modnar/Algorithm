@@ -1,8 +1,10 @@
+// Author : Modnar
+// Date   : 2019-04-07
+// Copyright (C) 2019 Modnar. All rights reserved.
+
 #include <iostream>
 #include <string>
 #include <vector>
-
-#include <cstdlib>
 
 // Implementation in C
 void make_next(char *pattern, int *next, int len) {
@@ -17,14 +19,14 @@ void make_next(char *pattern, int *next, int len) {
     }
 }
 
-void search(char *str, int slen, char *pattern, int len) {
+void search(char *source, int slen, char *pattern, int len) {
     int *next = (int *)malloc(len);
     make_next(pattern, next, len);
     int k = -1;
     for (int i = 0; i < slen; i++) {
-        while (k > -1 && pattern[k+1] != str[i]) 
+        while (k > -1 && pattern[k+1] != source[i]) 
             k = next[k];
-        if (pattern[k+1] == str[i])
+        if (pattern[k+1] == source[i])
             ++k;
         if (k == len - 1) {
             std::cout << "Position: " << i-len+1 << std::endl;
@@ -49,14 +51,14 @@ std::vector<int> make_next(const std::string &pattern) {
     return next;
 }
 
-void search(const std::string &str, const std::string &pattern) {
+void search(const std::string &source, const std::string &pattern) {
     std::vector<int> next = make_next(pattern);
     int k = -1;
     auto len = pattern.size();
-    for (int i = 0; i < str.size(); ++i) {
-        while (k > -1 && pattern[k+1] != str[i]) 
+    for (int i = 0; i < source.size(); ++i) {
+        while (k > -1 && pattern[k+1] != source[i]) 
             k = next[k];
-        if (pattern[k+1] == str[i])
+        if (pattern[k+1] == source[i])
             ++k;
         if (k == len - 1) {
             std::cout << "Position: " << i-len+1 << std::endl;
@@ -67,11 +69,11 @@ void search(const std::string &str, const std::string &pattern) {
 }
 
 int main() {
-//    char str[] = "BBC ABCDAB ABCDABCDABDE";
+//    char source[] = "BBC ABCDAB ABCDABCDABDE";
 //    char pattern[] = "ABCDABD";
-//    search(str, 36, pattern, 7);
-    std::string str("BBC ABCDAB ABCDABCDABDE");
+//    search(source, 36, pattern, 7);
+    std::string source("BBC ABCDAB ABCDABCDABDE");
     std::string pattern("ABCDABD");
-    search(str, pattern);
+    search(source, pattern);
     return 0;
 }
